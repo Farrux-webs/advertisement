@@ -1,0 +1,17 @@
+Sanjar, [5/12/2023 2:17 PM]
+@Post(['product/add', 'product/add/:id'])
+  postProduct(@Body() body:any, @Param('id') id:string){
+    return this.appService.postProduct([body, id])
+  }
+
+Sanjar, [5/12/2023 2:17 PM]
+async getUsersByFilter(date){
+    const users = await this.knex('users').whereBetween('user_created_at', [date[0], date[1]])
+    return users;
+  }
+
+Sanjar, [5/12/2023 2:17 PM]
+@Get(['date', 'date/:date'])
+  getUsersByFilter(@Query('date') date: string) {
+    return this.appService.getUsersByFilter(date);
+  }
